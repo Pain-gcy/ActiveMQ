@@ -16,7 +16,7 @@ public class Consumer {
     private String[] jobs = {"111","222"};
 
     public Consumer() throws Exception {
-        factory = new ActiveMQConnectionFactory(brokerURL);
+        factory = new ActiveMQConnectionFactory("admin","admin123",brokerURL);
         connection = factory.createConnection();
         connection.start();
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);

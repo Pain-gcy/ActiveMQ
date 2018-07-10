@@ -30,11 +30,11 @@ public class JMSConsumer {
         MessageConsumer consumer = session.createConsumer(destination);
         while(true){
             TextMessage msg = (TextMessage)consumer.receive();
-            System.out.println("收到的内容：" + msg.getText());
             if(msg == null) {
+                connection.close();
                 break;
             }
-
+            System.out.println("收到的内容：" + msg.getText());
         }
     }
 }
